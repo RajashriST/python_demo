@@ -1,0 +1,447 @@
+#!/usr/bin/python
+#print var types
+y=2.3
+print "y=",y," type= ",(type(y))
+b=False
+print "b=",b," type= ",type(b)
+#########################
+#take input from user: raw_input([prompt]) 
+#prompt is optional, raw_input returns str value always
+ur_name=raw_input("What is your name : ")
+print ur_name
+############################
+celsius=raw_input("Please input temperature in Celsius : ")
+celsius=int(celsius) 
+#celsius=float(celsius)
+fahrenheit=((celsius*9)/5) + 32
+print "Temperature ", celsius , "in fahrenheit = ", fahrenheit
+############################
+#Lists
+lists are mutable
+list_name=[ele1,ele2....]
+##help(list)   -- gives methods and info for lists
+#############################
+my_list=["raj",1,3.4,'aa',True]
+print type(my_list)
+print my_list[0]
+print my_list[-1]
+list1=[12.'raj',22,33,444,'sss',12]
+print(list1(0)))
+###################################
+functions :- min(list) , max(list), len(list) , del(list[index]) , type(list)
+Methods :- list.append(ele), list.index(ele) , list,insert(index,ele) , list.remove(ele) , list.count(ele), list.
+######################################
+print(len(list1))
+print(list1.index('raj'))
+print(list1.count(12))  #print count of element 12 in list
+list1.append("dahotre")
+print("After append : ",list1)
+list1.insert(0,11)   #append at index 0
+list1.reverse()
+list1.remove(12)
+print(list1)
+del(list1[0])
+#Add 2 lists 
+list2=list1 + my_list
+list3=[11,22,33,44,55]
+print(min(list3))
+print(max(list3))
+#for min and max methods all elements of list should be numeric.
+# diff bet function and method
+# function :- not related to object.
+#method :- it is limited to objects. Related to objects. 
+#print portion of list 
+print "list1[2:5] : " , list1[2:5]
+print "list1[3:] : " , list1[3:]
+#print list multiple times using *
+print "list3 * 4 : " , list3 * 4
+#ele in list or not using "membersghip operators"
+print (44 in list3)
+print (111 in list3 , 22 not in list3)
+print (list1 in list2)
+#print  list using for loop 
+for x in list3 :
+	print x
+
+
+
+####################################
+#when a list is passed to function , then it's referance is passed to function hence original list is modified. Because list is mutable object. (Same with all mutable objects)
+def changeme( mylist1):
+    '''This changes a passed list into this function'''
+    mylist1.append([1,2,3]) 
+    print( "Values inside the function: ", mylist1)
+    
+#-------------------------------
+
+mylist = [10,20,30]
+changeme( mylist )
+print ("Values outside the function: ", mylist) 
+
+
+#output:
+#    Values inside the function:  [10, 20, 30, [1, 2, 3]]
+#Values outside the function:  [10, 20, 30, [1, 2, 3]]
+
+
+
+
+changeme( [ mylist ])
+print ("Values outside the function: ", mylist)
+
+#Values inside the function:  [[10, 20, 30], [1, 2, 3]]
+#Values outside the function:  [10, 20, 30]
+
+#######################################################################################################################
+tuple : immutable list . It's list that can't be changed or modified,permanent list.
+         it uses () brackets
+tuple_name=(ele1,ele2,ele3,....)
+we can delete entire tuple , but single ele from tuple can't be deleted
+help(tuple)
+################################################
+tuple1=(1,2,3,4,55,"raj")
+print type(tuple1)
+print "tuple1 : " , tuple1
+#delete entire tuple 
+print "delete tuple : " , del(tuple1)
+#to print tuple elements using field separator , work on strings only,hence all tuple ele must be str 
+t=("1","2","3","hi")
+print ":".join(t)
+1:2:3:hi
+functions :- min , max ,count
+#######################################################################################################################
+Dictionary :- 
+-list of key:value pairs
+-mutable
+functions :- del(dict[key]) , len(dict)
+methods :- dict.keys(), dict.copy() , dict.values()
+#######################################################################################################################
+emp = {"first" : "xxx", 222 : "abc" , 333 : "aaaa" , "aaa" : 111}
+#add new value : dictionary[key] : value
+emp[400] = "vvv"
+print emp
+#delete entry 
+del(emp("aaa"))
+print emp
+#update 
+emp[222] = "aaaaa"
+print emp
+#copy dict 
+emp_2 = emp.copy()
+print "emp2 = " , emp
+#extract keys :
+emp_keys=emp.keys()
+print emp_keys
+#extract values :
+emp_vaules=emp.values()
+print emp_values
+print len(emp)
+#############################
+Use of dict :- store data in form of key:value pairs
+#############################
+#######################################################################################################################
+Functions :-
+def fun_name() :
+	statements
+	return value/s
+#__ for return statenent if multiple valus returned , then it will be treated as tuple.
+#************************************************
+eg1:-
+def add(x,y) :
+	print " In add function"
+	return x+y,"is addition"
+a=add(11,22)   #here a becomes tuple
+print type(a)   # it will print tuple , bcz multiple values return from fun in form of tuple
+print a
+s=22
+t=33
+b,c=add(x=11,y=22)   # order of positional para can be anything o/p => b=33 , c=is addition 
+print "type(b)",type(b),"type(c)",type(c)
+g,h,j=add(s,t)  ## ERROR :- more than 2 values needed to unpack , bcz fun returns 2 values and we are asking for 3 values
+#****************************************************
+def sub(x,y):
+	return x-y
+# a,b,c=sub(22,1)  # error because o/p is int which can be assigned to 1 var only]
+a=sub(22,1
+print "type(a)",type(a)
+print "a= ",a
+#----------------------------------------------------
+list1=[11,22,33,44]
+# name of list is diff in fun call 
+print "list1 : ", list1
+def list_f(list2):
+	print list2
+	list2=list2.append([0,10,20])
+	print "list2 after append in fun : ",list2
+list_f(list1)	
+print "list1 after fun call : ",list1
+#name of list is same in fun call 
+def list_fun(list1):
+	print "list1 in fun before append : ",list1
+	list1=list1.append([102,123,134])
+	print "list1 in fun after append : ",list1
+list_fun(list1)
+print "list1 original after fun call : ",list1
+#######################################################################################################################
+#-----------------------------------------------------------------------------------------------------------
+#VARIABLE SCOPE:
+#list is unchanged here
+list1=[1,2,3,4]
+print "list1 : out of function:   " , list1
+def func():
+ list1=[55,33,22,44]
+ print "list1 declared in function local :"
+ print "list1 : " , list1
+func()
+print "list1 out of fun after fun call :   ",list1
+###########################################
+#list will change here , bcz we will use it as global list in fun call
+# we can have 2 functions with same name in same script it will call recent fun
+#def func():
+def func_1():
+ global list1
+ print "list1 : global : ", list1
+ list1.append([10,93,62,47])
+ print "list1 declared in function global :"
+ print "list1 : " , list1
+func_1()
+print "list1 out of fun after fun call :   ",list1
+###################################################################
+# below code will make local list1 = original list1
+# here local list2 is made global hence original list values replaced by local list2 value ["x","y","z"] and then further opeartions performed on this modified global list2
+list2=[11,22,33,44]
+def func_2():
+ list2 = ["x","y","z"]
+ print " list2 : local in fun : ", list2
+ global list2
+ print "list2 : global in fun : ", list2
+ list2.append([10,93,62,47])
+ print "list2 declared in function global :"
+ print "list2 : " , list2
+func_2()
+print "list2 : original : afterfun call :   ",list2
+###########################################################################################################################################
+#**************************************************************************
+#files type :
+####################################################################################################################################
+#!/usr/bin/python
+#to read file
+fo=open("test.txt","r")
+txt=fo.read()
+print txt
+print "type of txt : ",type(txt)
+###############
+#O/p for txt var:- 
+Hi Raj
+1st line
+2nd line
+3rd line
+4th line
+5th line
+6th line
+Last Line
+type of txt :  <type 'str'>
+##############
+lst_read=[i for i in open("test.txt","r").readlines()]
+print lst_read
+##o/p : ['Hi Raj\n', '1st line\n', '2nd line\n', '3rd line\n', '4th line\n', '5th line\n', '6th line\n', 'Last Line\n']
+#################
+#file_obj.readline() -- reads only 1 line
+lst_read=[i for i in open("test.txt","r").readline()]
+print lst_read
+#o/p : ['H', 'i', ' ', 'R', 'a', 'j', '\n']
+#########################################################################################################################################
+import os
+pwd=os.getcwd()
+os.chdir(/home/rt699r/)
+print os.getcwd()
+os.chdir(pwd)
+print os.getwd()
+os.rename(test.txt,test_1.txt)
+############################################################################################################################################
+Matrix :- 
+#!/usr/bin/python
+#use of nested loop to create matrix
+m=[[1,2,3],[4,5,6],[7,8,9]]
+#this will print list1 as row1 and so on
+for row in m:
+        print row
+#below will print column matrix
+for row in range(len(m)):
+ print ""
+ for col in range(len(m[row])):
+        print m[col][row],
+print "\n --------------------------------------\n"
+print "Using zip module : "
+t_matrix=zip(*m)
+for i in t_matrix:
+        print i
+:::::::::::::::::::::::
+O/P:-
+[1, 2, 3]
+[4, 5, 6]
+[7, 8, 9]
+1 4 7
+2 5 8
+3 6 9
+ --------------------------------------
+Using zip module :
+(1, 4, 7)
+(2, 5, 8)
+(3, 6, 9)
+############################################################################################################################################
+STRING operations:-
+#!/usr/bin/python
+# Python code to demonstrate working of 
+# isalpha(), isalnum(), isspace()
+str = "geeksforgeeks"
+str1 = "123"
+# Checking if str has all alphabets 
+if (str.isalpha()):
+       print ("All characters are alphabets in str")
+else : print ("All characters are not alphabets in str")
+# Checking if str1 has all numbers
+if (str1.isalnum()):
+       print ("All characters are numbers in str1")
+else : print ("All characters are not numbers in str1")
+# Checking if str1 has all spaces
+if (str1.isspace()):
+       print ("All characters are spaces in str1")
+else : print ("All characters are not spaces in str1")
+# Python code to demonstrate working of 
+# len() and count()
+str = "geeksforgeeks is for geeks"
+# Printing length of string using len()
+print (" The length of string is : ", len(str));
+# Printing occurrence of "geeks" in string
+# Prints 2 as it only checks till 15th element
+print (" Number of appearance of ""geeks"" is : ",end="")
+print (str.count("geeks",0,15))
+print (str.count("geeks"))
+
+print('rrr''ttt;')
+rrrttt;
+#joins both strings
+---------------------------------------------------------
+1. strip() :- This method is used to delete all the leading and trailing characters mentioned in its argument.
+2. lstrip() :- This method is used to delete all the leading characters mentioned in its argument. (all left side)
+3. rstrip() :- This method is used to delete all the trailing characters mentioned in its argument. (all right side)
+------------------------------------------------
+#!/usr/bin/python
+# Python code to demonstrate working of 
+# strip(), lstrip() and rstrip()
+str = "---geeksforgeeks---"
+# using strip() to delete all '-'
+print ( " String after stripping all '-' is : ", end="")
+print ( str.strip('-') )
+# using lstrip() to delete all leading '-'
+print ( " String after stripping all leading '-' is : ", end="")
+print ( str.lstrip('-') )
+# using rstrip() to delete all trailing '-'
+print ( " String after stripping all trailing '-' is : ", end="")
+print ( str.rstrip('-') )
+# Python code to demonstrate working of 
+# replace()
+str = "nerdsfornerds is for nerds"
+str1 = "nerds"
+str2 = "geeks"
+# using replace() to replace str2 with str1 in str
+# only changes 2 occurrences 
+print ("The string after replacing strings is : ", end="")
+print (str.replace( str1, str2, 2)) 
+print (str.replace( str1, str2))
+-----------------------------------------------
+Output:
+ String after stripping all '-' is : geeksforgeeks
+ String after stripping all leading '-' is : geeksforgeeks---
+ String after stripping all trailing '-' is : ---geeksforgeeks
+ The string after replacing strings is : geeksforgeeks is for nerds
+ The string after replacing strings is : geeksforgeeks is for geeks
+ --------------------------------------------------------------------------------------------
+ 1. find(“string”, beg, end) :- This function is used to find the position of the substring within a string.It takes 3 arguments, substring , starting index( by default 0) and ending index( by default string length).
+It returns “-1 ” if string is not found in given range.
+It returns first occurrence of string if found.
+2. rfind(“string”, beg, end) :- This function has the similar working as find(), but it returns the position of the last occurrence of string.
+# Python code to demonstrate working of 
+# find() and rfind()
+str = "geeksforgeeks is for geeks"
+str2 = "geeks"
+# using find() to find first occurrence of str2
+# returns 8
+print ("The first occurrence of str2 is at : ", end="")
+print (str.find( str2, 4) )
+# using rfind() to find last occurrence of str2
+# returns 21
+print ("The last occurrence of str2 is at : ", end="")
+print ( str.rfind( str2, 4) )
+Output:
+The first occurrence of str2 is at : 8
+The last occurrence of str2 is at : 21
+-------------------------------------
+startswith(“string”, beg, end) :- The purpose of this function is to return true if the function begins with mentioned string(prefix) else return false.
+4. endswith(“string”, beg, end) :- The purpose of this function is to return true if the function ends with mentioned string(suffix) else return false.
+5. islower(“string”) :- This function returns true if all the letters in the string are lower cased, otherwise false.
+6. isupper(“string”) :- This function returns true if all the letters in the string are upper cased, otherwise false.
+7. lower() :- This function returns the new string with all the letters converted into its lower case.
+8. upper() :- This function returns the new string with all the letters converted into its upper case.
+9. swapcase() :- This function is used to swap the cases of string i.e upper case is converted to lower case and vice versa.
+10. title() :- This function converts the string to its title case i.e the first letter of every word of string is upper cased and else all are lower cased.
+####################################################################################################
+#!/usr/bin/python
+#program for packing unpacking using of arguments to function  list and dictionry
+def fun(a,b,c):
+        print a,b,c
+list_1=[11,22,33]
+#fun(list_1)  --- gives error as only 1arg
+print 'call using fun(*list_1)'
+fun(*list_1)
+print 'call using fun(*[11,44,55])'
+fun(*[11,44,55])
+print "cal using dict fun(**{'a':812,'b':52,'c':36})"
+fun(**{'a':812,'b':52,'c':36})
+dict_1={'a':12,'b':22,'c':34}
+print 'cal using dict fun(**dict_1)'
+fun(**dict_1)
+#####################################################################################################
+
+
+FUnction assign to var:-
+Python’s functions are objects
+To understand decorators, you must first understand that functions are objects in Python. This has important consequences. Let’s see why with a simple example :
+
+def shout(word='yes'):
+    return word.capitalize() + '!'
+
+print shout()
+# outputs : 'Yes!'
+
+# As an object, you can assign the function to a variable like any
+# other object 
+
+scream = shout
+
+# Notice we don’t use parentheses: we are not calling the function, we are
+# putting the function `shout` into the variable `scream`. 
+# It means you can then call `shout` from `scream`:
+
+print scream()
+# outputs : 'Yes!'
+
+# More than that, it means you can remove the old name `shout`, and
+# the function will still be accessible from `scream`
+
+del shout
+try:
+    print shout()
+except NameError as e:
+    print e
+    #outputs: "name 'shout' is not defined"
+
+print scream()
+# outputs: 'Yes!'
+
+
+s=shout()	     
+print(s)
+#o/p : Yes! 
+# here s = o/p of called function shout
