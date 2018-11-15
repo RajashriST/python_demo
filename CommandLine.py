@@ -4,3 +4,4 @@ for x in sys.argv:
 
 
 #Calling: D:\Python\SOURCE_CODE\MyDemo\commandline.py hello world
+#this program demos CLI use
