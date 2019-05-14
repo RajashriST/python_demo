@@ -29,7 +29,7 @@ list1=[12.'raj',22,33,444,'sss',12]
 print(list1(0)))
 ###################################
 functions :- min(list) , max(list), len(list) , del(list[index]) , type(list)
-Methods :- list.append(ele), list.index(ele) , list,insert(index,ele) , list.remove(ele) , list.count(ele), list.
+Methods :- list.append(ele), list.index(ele) , list.insert(index,ele) , list.remove(ele) , list.count(ele), list.
 ######################################
 print(len(list1))
 print(list1.index('raj'))
